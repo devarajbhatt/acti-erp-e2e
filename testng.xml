@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Sanity Testing">
+
+	<listeners>
+		<listener class-name="com.acti.erp.common.util.CustomReport" />
+		<listener
+			class-name="com.acti.erp.common.util.CustomSummaryReport" />
+	</listeners>
+
+	<test thread-count="5" parallel="tests" name="Sanity Testing">
+		<parameter name="browserName" value="Chrome" />
+		<parameter name="url" value="http://localhost:8090/" />
+		<classes>
+			<class
+				name="com.acti.erp.application.testscripts.TESTCASE_ACTI_001" />
+		</classes>
+	</test> <!-- Sanity Testing -->
+</suite> <!-- Sanity Testing -->

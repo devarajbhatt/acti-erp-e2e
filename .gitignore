@@ -10,7 +10,6 @@ test-output/
 **/*.log
 /test-output/
 /XMLDownloads/
-/screenshots/
 **/*.png/
 **/*.html/
 /*.html/

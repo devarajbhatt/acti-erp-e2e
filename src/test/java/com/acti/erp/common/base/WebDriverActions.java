@@ -2,7 +2,9 @@ package com.acti.erp.common.base;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 
@@ -43,6 +45,26 @@ public class WebDriverActions {
 		for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle);
 			logger.info("Switched to child widnow");
+		}
+	}
+	
+	/**
+	 * This method will Switch to particular windows with conditions
+	 * @param WebDriver driver
+	 * @param title: Title of the window
+	 * 
+	 * @author Devaraj Bhat
+	*/		
+	public void switchToTheMultipleWindow(WebDriver driver, String title) {
+
+		Set<String> windowHandles = driver.getWindowHandles();
+		Iterator<String> iterator = windowHandles.iterator();
+		while (iterator.hasNext()) {
+			String window = iterator.next();
+			driver.switchTo().window(window);
+			if (driver.getTitle().equals("Test")) {
+				break;
+			}
 		}
 	}
 
@@ -90,5 +112,4 @@ public class WebDriverActions {
 		Assert.assertTrue(comapareReturnValue);
 		logger.info("Both imanges are matching as expected");
 	}
-	
 }
